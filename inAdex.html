@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הוזלת ביטוח חיים למשכנתא | בדיקה חינם</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #b8952a;
+    --red-dark: #8a6e1e;
+    --red-light: #f5e9c8;
+    --gold: #D4AC0D;
+    --gold-light: #FEF9E7;
+    --dark: #1a2236;
+    --mid: #444;
+    --muted: #777;
+    --border: #E0E0E0;
+    --bg: #FAFAF8;
+    --white: #FFFFFF;
+    --green: #4caf7d;
+    --green-light: #d4f5e5;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  @keyframes shimmer { 0%{background-position:0 200%;} 100%{background-position:0 -200%;} }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+  @keyframes pc { 0%,100%{transform:scale(1);} 50%{transform:scale(1.15);} }
+
+  header {
+    background: var(--dark);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+  .logo {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: var(--gold); }
+  .header-cta {
+    background: var(--red);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+  .header-cta:hover { background: var(--red-dark); }
+
+  .hero {
+    background: linear-gradient(170deg, #1e2a40 0%, var(--dark) 55%, #141c2e 100%);
+    color: #fff;
+    padding: 72px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(170deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    background-size: 100% 200%;
+    animation: shimmer 3.5s infinite linear;
+    pointer-events: none;
+  }
+
+  .c1 { position:absolute; width:340px; height:340px; border-radius:50%; background:rgba(184,149,42,0.1); top:-80px; right:-80px; animation:pc 3.5s ease-in-out infinite; }
+  .c2 { position:absolute; width:260px; height:260px; border-radius:50%; background:rgba(76,175,125,0.08); bottom:-100px; left:-60px; animation:pc 3.5s ease-in-out infinite 1.1s; }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    position: relative; z-index: 2;
+  }
+
+  .hero-shield {
+    width: 60px; height: 60px;
+    margin: 0 auto 20px;
+    display: block;
+    animation: float 2.6s ease-in-out infinite;
+    position: relative; z-index: 2;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    position: relative; z-index: 2;
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero p.subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    position: relative; z-index: 2;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 42px;
+    position: relative; z-index: 2;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    display: block;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+  .hero-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    height: 48px;
+    align-self: center;
+  }
+  .cta-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative; z-index: 2;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(184,149,42,0.3);
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,149,42,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+  .trust-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .trust-bar span { display: flex; align-items: center; gap: 6px; }
+  .trust-bar .dot { 
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0;
+    animation: blink 1.8s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  section { padding: 72px 24px; }
+  .container { max-width: 880px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  .problem { background: var(--white); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .problem-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: transform 0.3s ease;
+  }
+  .problem-card:hover { transform: translateY(-5px); }
+  .problem-card .icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .problem-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .problem-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .process { background: var(--bg); }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 24px; align-items: flex-start; position: relative; }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute; right: 20px; top: 52px; bottom: -24px;
+    width: 2px; background: var(--border);
+  }
+  .step-num {
+    width: 42px; height: 42px; border-radius: 50%; background: var(--dark); color: #fff;
+    font-size: 16px; font-weight: 900; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .step-body { padding-bottom: 36px; }
+  .step-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .step-body p { font-size: 15px; color: var(--muted); }
+
+  .proof { background: var(--bg); }
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .testimonial {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+  .testimonial:hover { border-color: var(--gold); transform: scale(1.02); }
+  .stars { color: var(--gold); font-size: 18px; margin-bottom: 12px; }
+  .testimonial p { font-size: 15px; color: var(--mid); margin-bottom: 16px; font-style: italic; }
+  .testimonial .name { font-size: 14px; font-weight: 700; }
+  .testimonial .city { font-size: 13px; color: var(--muted); }
+  .savings-badge {
+    display: inline-block; background: var(--green-light); color: var(--green);
+    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+
+  .benefits { background: var(--white); }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .benefit {
+    display: flex; gap: 14px; align-items: flex-start; padding: 20px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    transition: background 0.3s;
+  }
+  .benefit:hover { background: var(--gold-light); border-color: var(--gold); }
+  .benefit-icon {
+    width: 36px; height: 36px; background: var(--green-light); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .benefit h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .benefit p { font-size: 13px; color: var(--muted); }
+
+  .contact-section {
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative; overflow: hidden;
+  }
+  .contact-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(170deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    background-size: 100% 200%; animation: shimmer 4s infinite linear; pointer-events: none;
+  }
+  .contact-section h2 { font-size: clamp(24px, 4vw, 40px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 12px; position: relative; }
+  .contact-section p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 44px; position: relative; }
+  .contact-cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; position: relative; }
+  .contact-card {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    padding: 28px 36px; min-width: 200px; transition: all 0.3s; cursor: pointer;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+  .contact-card .icon { font-size: 30px; margin-bottom: 10px; }
+  .contact-card .type { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; opacity: 0.6; margin-bottom: 6px; text-transform: uppercase; }
+  .contact-card .value { font-size: 18px; font-weight: 700; }
+  .contact-note { font-size: 15px; color: rgba(255,255,255,0.65); position: relative; }
+  .contact-note strong { color: #fff; }
+
+  footer { background: var(--dark); color: rgba(255,255,255,0.45); text-align: center; padding: 24px; font-size: 13px; }
+
+  .sticky-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--dark); border-top: 3px solid var(--red);
+    padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 100; gap: 16px;
+  }
+  .sticky-bar span { color: #fff; font-size: 15px; font-weight: 500; }
+  .sticky-bar span b { color: var(--gold); }
+  .sticky-btn {
+    background: var(--red); color: #fff; padding: 11px 24px; border-radius: 7px;
+    font-size: 15px; font-weight: 700; border: none; cursor: pointer;
+    white-space: nowrap; flex-shrink: 0; transition: background 0.2s;
+  }
+  .sticky-btn:hover { background: var(--red-dark); }
+
+  @media (max-width: 600px) {
+    header { flex-direction: column; gap: 12px; text-align: center; }
+    .hero-stats { gap: 20px; }
+    .hero-divider { display: none; }
+    .sticky-bar span { font-size: 13px; }
+    section { padding: 52px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ביטוח <span>חכם</span> למשכנתא</div>
+  <a href="mailto:z7621752@gmail.com" class="header-cta">שלח לי לבדיקה חינם ←</a>
+</header>
+
+<section class="hero">
+  <div class="c1"></div><div class="c2"></div>
+  
+  <div class="container">
+    <div class="hero-badge">⚠️ רוב בעלי המשכנתאות משלמים יותר מדי</div>
+    
+    <svg class="hero-shield" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 4L8 14v18c0 14.4 10.4 27.8 24 31 13.6-3.2 24-16.6 24-31V14L32 4z" fill="#4caf7d" opacity="0.15"/>
+      <path d="M32 12L12 20v12c0 11.6 8.6 22.4 20 25 11.4-2.6 20-13.4 20-25V20L32 12z" fill="#253352"/>
+      <path d="M22 32l7 7 13-13" stroke="#b8952a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <h1>הכסף שלך בורח כל חודש?<br><span class="accent">בואו נסגור את הברז!</span></h1>
+    <p class="subtitle">ביטוח החיים למשכנתא שלך עשוי לעלות לך אלפי שקלים מיותרים. בדיקה חינם, ללא התחייבות, בדקות בודדות.</p>
+    
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">9/10</span>
+        <span class="label">פוליסות שבדקנו —<br>מצאנו חיסכון</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="num">₪3,000+</span>
+        <span class="label">חיסכון ממוצע<br>לאורך ההלוואה</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="num">₪0</span>
+        <span class="label">עלות הבדיקה<br>ועלות הניוד</span>
+      </div>
+    </div>
+    
+    <div class="cta-group">
+      <a href="mailto:z7621752@gmail.com?subject=בדיקה" class="btn-primary">שלח "בדיקה" במייל ←</a>
+      <a href="tel:0733021404" class="btn-secondary">📞 השאר הודעה בתא קולי</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <span><span class="dot"></span> בדיקה חינם ללא עלות</span>
+  <span><span class="dot"></span> אפס עמלות ניוד</span>
+  <span><span class="dot"></span> אותם כיסויים בדיוק</span>
+  <span><span class="dot"></span> תשובה תוך 24 שעות</span>
+</div>
+
+<section class="problem">
+  <div class="container">
+    <div class="section-label">הבעיה</div>
+    <h2 class="section-title">למה אתם משלמים יותר ממה שצריך?</h2>
+    <p class="section-sub">חברות הביטוח לא טורחות להודיע לכם שהמחיר ירד — הן מעדיפות שתמשיכו לשלם.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="icon">😴</span>
+        <h3>לקחתם ביטוח בעת לקיחת המשכנתא</h3>
+        <p>הבנק "הכווין" אתכם לביטוח שלהם — לא בהכרח הכי זול. זה נוח להם, לא לכם.</p>
+      </div>
+      <div class="problem-card">
+        <span class="icon">📉</span>
+        <h3>יתרת ההלוואה ירדה — הפרמיה לא</h3>
+        <p>ככל שמחזירים יותר, הסיכון לחברת הביטוח קטן. אבל הם לא ממהרים לעדכן את המחיר שלכם.</p>
+      </div>
+      <div class="problem-card">
+        <span class="icon">🚪</span>
+        <h3>"אמרו לי שאי אפשר להוזיל"</h3>
+        <p>זה לא נכון. ב-9 מתוך 10 מקרים שבדקתי — מצאתי חיסכון. גם אחרי שאמרו ללקוח שהוא כבר במחיר הכי נמוך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-label">איך זה עובד</div>
+    <h2 class="section-title">שלושה צעדים פשוטים</h2>
+    <p class="section-sub">כל התהליך לוקח דקות — החיסכון נשאר אצלכם שנים.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>שולחים לנו את פרטי הפוליסה</h3>
+          <p>מייל עם המילה "בדיקה" ואנחנו מסתדרים עם השאר. לא צריך להכין כלום מראש.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>אנחנו בודקים ומשווים</h3>
+          <p>אנחנו בודקים את הפוליסה מאפס ומשווים מול החברה שאנחנו עובדים איתה — בדיוק אותם כיסויים, מחיר נמוך יותר.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>מעבר חלק — כל החיסכון לכם</h3>
+          <p>אפס עמלות ניוד. אפס דמי טיפול. כל שקל שנחסך הולך ישירות לכיס שלכם.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="container">
+    <div class="section-label">לקוחות מספרים</div>
+    <h2 class="section-title">גם הם אמרו "אני כבר במחיר הכי נמוך"</h2>
+    <p class="section-sub">ואז עשינו להם בדיקה...</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="savings-badge">חסכנו ₪28 בחודש</div>
+        <div class="stars">★★★★★</div>
+        <p>"חשבתי שזה לא שווה, 'כמה שקלים בחודש'... אבל כשהסברו לי שזה ₪8,400 לאורך המשכנתא, שיניתי דעה מיד."</p>
+        <div class="name">אהרן ר.</div>
+        <div class="city">קרית ספר</div>
+      </div>
+      <div class="testimonial">
+        <div class="savings-badge">חסכנו ₪45 בחודש</div>
+        <div class="stars">★★★★★</div>
+        <p>"ממש הייתי סקפטי. הבנק אמר לי שאני עם ביטוח מסובסד. אחרי הבדיקה, הועברתי לפוליסה זהה בחצי המחיר."</p>
+        <div class="name">אבי מ.</div>
+        <div class="city">ירושלים</div>
+      </div>
+      <div class="testimonial">
+        <div class="savings-badge">חסכנו ₪19 בחודש</div>
+        <div class="stars">★★★★★</div>
+        <p>"הכל נעשה בלי שנאלצתי לעשות כלום בעצמי. שלחתי מייל, קיבלתי הצעה, חתמתי — וזהו."</p>
+        <div class="name">מיכל ד.</div>
+        <div class="city">בני ברק</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <div class="section-label">למה אנחנו</div>
+    <h2 class="section-title">מה מקבלים בבדיקה</h2>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">✅</div>
+        <div>
+          <h4>בדיקה חינם לגמרי</h4>
+          <p>לא משלמים שקל גם אם לא עוברים.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🔒</div>
+        <div>
+          <h4>אותם כיסויים בדיוק</h4>
+          <p>לא מוותרים על שום הגנה, רק מורידים מחיר.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🚀</div>
+        <div>
+          <h4>ניוד ללא עלות</h4>
+          <p>אין עמלות, אין דמי טיפול, אין הפתעות.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">💸</div>
+        <div>
+          <h4>כל הרווח לכם</h4>
+          <p>לא גובים עמלה מהלקוח — אתם מרוויחים הכל.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <h2>מוכנים לדעת כמה תחסכו?</h2>
+    <p>הבדיקה חינם, לוקחת דקות. חבל על כל חודש שעובר.</p>
+    <div class="contact-cards">
+      <a href="mailto:z7621752@gmail.com?subject=בדיקה" class="contact-card">
+        <div class="icon">📧</div>
+        <div class="type">מייל</div>
+        <div class="value">שלח "בדיקה"</div>
+      </a>
+      <a href="tel:0733021404" class="contact-card">
+        <div class="icon">📞</div>
+        <div class="type">תא קולי 24/6</div>
+        <div class="value">0733-021-404</div>
+      </a>
+    </div>
+    <p class="contact-note">הבדיקה לוקחת <strong>דקות בודדות</strong>.<br>החיסכון נשאר אצלכם <strong>שנים</strong>.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 | ביטוח חיים למשכנתא | כל הזכויות שמורות</p>
+</footer>
+
+<div class="sticky-bar">
+  <span>9/10 פוליסות — <b>מצאנו חיסכון</b></span>
+  <a href="mailto:z7621752@gmail.com?subject=בדיקה" class="sticky-btn">שלח "בדיקה" חינם →</a>
+</div>
+
+</body>
+</html>
